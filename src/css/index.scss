@@ -1,0 +1,317 @@
+$theme : #C20C0C;               //主题红色
+$theme-deep : #9B0909;          //主题深红色
+$dark : #242424;                //主要暗色
+$light-font : #333;             //亮色背景字体色
+$dark-font : #ccc;              //暗色背景字体色
+
+//版心宽度
+.wrap {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+header {
+  height: 70px;
+  background-color: $dark;
+  color: $dark-font;
+
+  //logo
+  h1 {
+    float: left;
+    margin-left: 200px;
+    height: 60px;
+    width: 172px;
+    background: url(../image/topbar.png);
+    background-position: 0 0;
+  }
+
+  //功能列表
+  ul {
+    float: left;
+    
+    li {
+      float: left;
+      height: 70px;
+      padding: 0 20px;
+      line-height: 70px;
+      color: $dark-font;
+      background-color: $dark;
+      cursor: pointer;
+
+      &.active, &:hover {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  //搜索框
+  .search {
+    float: right;
+    margin: 20px 200px 0 0;
+    
+    input {
+      float: right;
+      height: 30px;
+      border-radius: 15px;
+      padding: 0 30px;
+      border: none;
+      color: $light-font;
+    }
+
+    span {
+      margin: 3px 30px;
+      float: right;
+      cursor: pointer;
+    }
+  }
+}
+
+//小导航栏
+nav {
+  height: 30px;
+  background-color: $theme;
+  color: #fff;
+  padding-left: 380px;
+
+  li {
+    float: left;
+    margin: 0 20px;
+    height: 100%;
+
+    &.active {
+      span {
+        background-color: $theme-deep;
+      }
+    }
+
+    span {
+      font-size: 12px;
+      padding: 2px 15px;
+      display: inline-block;
+      border-radius: 10px;
+      margin-top: 5px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $theme-deep;
+      }
+    }
+  }
+}
+
+//播放器条
+footer {
+  background-color: $dark;
+  color: $dark-font;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  .wrap {
+    height: 100%;
+
+    //功能按钮
+    .controls {
+      float: left;
+      height: 100%;
+      
+      i {
+        float: left;
+        font-size: 30px;
+        line-height: 60px;
+        padding-right: 15px;
+        cursor: pointer;
+  
+        &:nth-child(2) {
+          font-size: 40px;
+        }
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+
+    //播放器中部
+    .play {
+      float: left;
+      width: 750px;
+
+      //专辑封面小图
+      .cover {
+        float: left;
+        width: 50px;
+        height: 46px;
+        border: 2px solid #000;
+        margin-top: 5px;
+        
+        img {
+          border-radius: 4px;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      //播放器中部右边
+      .play-right {
+        float: left;
+        margin: 8px 0 0 15px;
+
+        //歌曲信息
+        .info {
+
+          .name {
+            font-size: 12px;
+  
+          }
+          .artist {
+            font-size: 12px;
+            margin-left: 20px;
+          }
+        }
+
+        //进度条
+        .progress {
+          width: 680px;
+          margin-top: 5px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .line {
+            float: left;
+            width: 550px;
+            height: 8px;
+            border-radius: 5px;
+            position: relative;
+            background-color: $dark-font;
+
+            .line-done {
+              width: 0;
+              height: 100%;
+              border-radius: 5px;
+              background-color: $theme;
+            }
+            .slider {
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              background-color: #fff;
+              position: absolute;
+              top: -3px;
+              left: 0;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              z-index: 1;
+
+              .circle {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: $theme;
+
+              }
+            }
+          }
+
+          .time {
+            float: left;
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    //播放列表区域
+    .list {
+      float: right;
+      width: 100px;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+
+      i {
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      //音量调节
+      .volume {
+        position: relative;
+
+        .volume-wrap {
+          position: absolute;
+          background-color: rgba(0, 0, 0, 0.6);
+          bottom: 43px;
+          left: 0;
+          width: 24px;
+          height: 100px;
+
+          .line {
+            position: relative;
+            height: 100px;
+            width: 8px;
+            border-radius: 5px;
+            margin: 0 auto;
+            background-color: $dark-font;
+  
+            .line-done {
+              height: 100%;
+              width: 100%;
+              border-radius: 5px;
+              background-color: $theme;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+            }
+            .slider {
+              width: 14px;
+              height: 14px;
+              border-radius: 50%;
+              background-color: #fff;
+              position: absolute;
+              bottom: 93px;
+              left: -3px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              z-index: 1;
+  
+              .circle {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: $theme;  
+              }
+            }
+          }
+        }
+      }
+
+      //播放列表按钮
+      .show-list {
+        position: relative;
+        cursor: pointer;
+
+        span {
+          display: block;
+          width: 30px;
+          height: 20px;
+          background-color: #000;
+          border-radius: 0 10px 10px 0;
+          position: absolute;
+          left: 20px;
+          top: 5px;
+          padding-left: 10px;
+          z-index: -1;
+        }
+      }
+    }
+  }
+
+}
