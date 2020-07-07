@@ -6,6 +6,41 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "736560",
+      "name": "android",
+      "font_class": "android",
+      "unicode": "e611",
+      "unicode_decimal": 58897
+    },
+    {
+      "icon_id": "1496251",
+      "name": "苹果",
+      "font_class": "pingguo",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "2815716",
+      "name": "上一个",
+      "font_class": "shangyige1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "2815734",
+      "name": "下一个",
+      "font_class": "xiayige1",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    },
+    {
+      "icon_id": "6808502",
+      "name": "Windows",
+      "font_class": "Windows",
+      "unicode": "edd4",
+      "unicode_decimal": 60884
+    },
+    {
       "icon_id": "6671826",
       "name": "喜爱",
       "font_class": "aixin",

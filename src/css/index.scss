@@ -4,6 +4,8 @@ $dark : #242424;                //主要暗色
 $light-font : #333;             //亮色背景字体色
 $dark-font : #ccc;              //暗色背景字体色
 
+@import './modules/banner.scss';
+
 //版心宽度
 .wrap {
   width: 1000px;
@@ -313,5 +315,4 @@ footer {
       }
     }
   }
-
 }

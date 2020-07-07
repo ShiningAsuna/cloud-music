@@ -8,6 +8,7 @@ const cssmin = require('gulp-cssmin');
 const htmlmin = require('gulp-htmlmin');
 const babel = require('gulp-babel');
 const jsuglify = require('gulp-uglify');
+const webserver = require('gulp-webserver');
 
 function cleanTask(){
   return src('./dist',{ allowEmpty : true })
@@ -59,6 +60,20 @@ function imageTask(){
           .pipe(dest('./dist/image'));
 }
 
+function webTask(){
+  return src('./dist')
+        .pipe(webserver({
+          host : 'localhost',
+          port : 4000,
+          open : './index.html',
+          livereload : true,
+          proxies: [{
+            source: '/api', 
+            target: 'http://localhost:3000/'
+          }]
+        }));
+}
+
 function watchTask(){
   watch('./src/view/*.html', htmlTask);
   watch('./src/css/*.scss', sassTask);
@@ -67,5 +82,6 @@ function watchTask(){
 
 module.exports = {
   watchfile : watchTask,
-  dev: series( cleanTask , parallel(htmlTask, sassTask, jsTask, imageTask, libTask, fontTask, watchTask))
+  server: webTask,
+  dev: series( cleanTask , parallel(htmlTask, sassTask, jsTask, imageTask, libTask, fontTask), parallel(watchTask, webTask))
 }

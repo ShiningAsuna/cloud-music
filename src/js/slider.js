@@ -8,7 +8,7 @@ define(['jquery'], function($){
           slider: $('.slider'),
           axis: 'x',
           dataAttr: 'percent',
-          onslide: function(percert){}
+          onslide: function(){}
         }, opt);
       this.opt = opt;
       this.$line = opt.line;
@@ -17,6 +17,8 @@ define(['jquery'], function($){
       this.axis = opt.axis;
       this.dataAttr = opt.dataAttr;
       this.onslide = opt.onslide;
+
+      this.init();
     }
 
     init(){
@@ -155,7 +157,5 @@ define(['jquery'], function($){
     }
   }
 
-  return {
-    element: Slider
-  };
+  return Slider;
 });
