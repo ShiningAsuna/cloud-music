@@ -5,6 +5,12 @@ $light-font : #333;             //亮色背景字体色
 $dark-font : #ccc;              //暗色背景字体色
 
 @import './modules/banner.scss';
+@import './modules/indexContent.scss';
+
+body {
+  background-color: #f1f1f1;
+  padding-bottom: 60px;
+}
 
 //版心宽度
 .wrap {
@@ -104,6 +110,7 @@ nav {
 
 //播放器条
 footer {
+
   background-color: $dark;
   color: $dark-font;
   height: 60px;

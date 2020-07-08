@@ -51,20 +51,20 @@ define(['jquery'], function($){
         $(document).on('mousemove.x', function(event){
           let percent;
           //增加边界限定
-          if(event.clientX - lLeft - x < 0){
+          if(event.pageX - lLeft - x < 0){
             _this.$slider.css('left', 0);
             _this.$lineDone.css('width', 0);
             _this.$line.attr('data-' + _this.dataAttr, 0);
             percent = 0;
-          } else if(event.clientX - lLeft - x > lWidth - sWidth/2) {
+          } else if(event.pageX - lLeft - x > lWidth - sWidth/2) {
             _this.$slider.css('left', lWidth - sWidth/2 + 'px');
             _this.$lineDone.css('width', lWidth);
             _this.$line.attr('data-' + _this.dataAttr, 100);
             percent = 100;
           } else {
-            let ldWidth = event.clientX - lLeft - x + sWidth/2;
+            let ldWidth = event.pageX - lLeft - x + sWidth/2;
             percent = (ldWidth / lWidth) * 100;
-            _this.$slider.css('left', event.clientX - lLeft - x + 'px');
+            _this.$slider.css('left', event.pageX - lLeft - x + 'px');
             _this.$lineDone.css('width', ldWidth + 'px');
             _this.$line.attr('data-' + _this.dataAttr, percent.toFixed(1));
           }
@@ -105,13 +105,16 @@ define(['jquery'], function($){
         let y = eve.offsetY;
         //进度条距离页面顶部的距离
         let lTop = _this.$line.offset().top;
+        console.log(lTop);
 
         //document移动事件
         $(document).on('mousemove.y', function(event){
           let percent;
           //此时滑块应该所处位置的top值
-          let sTop = event.clientY - lTop - y;
+          let sTop = event.pageY - lTop - y;
+
           let sBottom = lHeight - sTop - sHeight;
+          // console.log(sBottom)
           //增加边界限定
           if(sBottom < 0){
             _this.$slider.css('bottom', 0);
@@ -155,7 +158,7 @@ define(['jquery'], function($){
         _this.onslide(percent);
       });
     }
-  }
+  } 
 
   return Slider;
 });

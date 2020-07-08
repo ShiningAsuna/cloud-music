@@ -55,8 +55,8 @@ define(['jquery', 'throttle'], function($, {throttle}){
       this.throttle = opt.throttle;
       this.throttleTime = opt.throttleTime;
       this.onswitch = opt.onswitch;
-      this.size = this.$imgItems.length;
 
+      this.size = this.$imgItems.length;
       this.imgWidth = this.$imgItems.width();
       this.index = 0; 
     
