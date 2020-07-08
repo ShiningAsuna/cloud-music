@@ -16,7 +16,7 @@ define(['jquery', 'throttle'], function($, {throttle}){
    *    autoPlayTime: 可选，默认为3000：自动播放间隔
    *    effect: 可选，默认为'roll'滚动，可设置为'show'，直接出现不滚动
    *    throttle: 可选，默认为true，是否设置节流
-   *    throttleTime: 可选，默认为600，节流间隔时间
+   *    throttleTime: 可选，默认为500，节流间隔时间
    *    onswitch: 可选：当图片切换时的回调函数，参数为切换后图片的索引
    */
   class Banner {

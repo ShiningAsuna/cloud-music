@@ -16,7 +16,7 @@ function cleanTask(){
 }
 
 function sassTask(){
-  return src('./src/css/*.scss')
+  return src('./src/css/**')
       .pipe(sass())
       .pipe(autoPrefix())
       .pipe(cssmin())
