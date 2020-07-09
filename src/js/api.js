@@ -83,6 +83,21 @@ define(['jquery'], function($){
     }
 
     /**
+     * 根据歌手id获取歌手详情
+     * @param {String} artistId 歌手id
+     */
+    function apiArtistDetail(artistId){
+      return $.ajax({
+        url: 'api/artists',
+        type: 'get',
+        dataType: 'json',
+        data: {
+          id: artistId
+        }
+      });
+    }
+
+    /**
      * 获取飙升榜数据
      */
     function apiBsList(){
@@ -136,6 +151,7 @@ define(['jquery'], function($){
       apiSongUrl,
       apiLyric,
       apiSongDetail,
+      apiArtistDetail,
       apiBsList,
       apiXgList,
       apiRgList,
