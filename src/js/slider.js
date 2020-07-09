@@ -63,10 +63,10 @@ define(['jquery'], function($){
             percent = 100;
           } else {
             let ldWidth = event.pageX - lLeft - x + sWidth/2;
-            percent = (ldWidth / lWidth) * 100;
+            percent = ldWidth / lWidth;
             _this.$slider.css('left', event.pageX - lLeft - x + 'px');
             _this.$lineDone.css('width', ldWidth + 'px');
-            _this.$line.attr('data-' + _this.dataAttr, percent.toFixed(1));
+            _this.$line.attr('data-' + _this.dataAttr, (percent * 100).toFixed(1));
           }
           _this.onslide(percent);
           return false;
@@ -105,7 +105,6 @@ define(['jquery'], function($){
         let y = eve.offsetY;
         //进度条距离页面顶部的距离
         let lTop = _this.$line.offset().top;
-        console.log(lTop);
 
         //document移动事件
         $(document).on('mousemove.y', function(event){
@@ -128,10 +127,10 @@ define(['jquery'], function($){
             percent = 100;
           } else {
             let ldHeight = sBottom + sHeight / 2;
-            percent = (ldHeight / lHeight) * 100;
+            percent = ldHeight / lHeight;
             _this.$slider.css('bottom', sBottom + 'px');
             _this.$lineDone.css('height', sBottom + sHeight / 2 + 'px');
-            _this.$line.attr('data-' + _this.dataAttr, percent.toFixed(1));
+            _this.$line.attr('data-' + _this.dataAttr, (percent * 100).toFixed(1));
           }
           _this.onslide(percent);
           return false;
