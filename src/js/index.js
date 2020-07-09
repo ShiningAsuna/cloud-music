@@ -11,6 +11,8 @@ require.config({
 
 define(['jquery', 'slider', 'lyric'], function($, Slider){
 
+  let audio = $('audio')[0];
+
   //初始化进度条
   new Slider({
     line: $('.progress .line'),
@@ -36,6 +38,16 @@ define(['jquery', 'slider', 'lyric'], function($, Slider){
   //点击音量事件
   $('.volume i').on('click', function(){
     $('.volume-wrap').toggle();
+  });
+
+  $('.controls').on('click', '.icon-start', function(){
+    audio.play();
+    $(this).removeClass('icon-start').addClass('icon-pause');
+  });
+
+  $('.controls').on('click', '.icon-pause', function(){
+    audio.pause();
+    $(this).removeClass('icon-pause').addClass('icon-start');
   });
 
 });

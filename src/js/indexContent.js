@@ -25,6 +25,7 @@ define(['jquery', 'banner', 'api'], function($, Banner, api){
         $(`<li class="list-item ${i===0?'active':''}"></li>`).appendTo('.list-wrap');
       }
 
+      //启动轮播图
       new Banner({
         imgWrap: $('.img_wrap'),
         leftBtn: $('.btn-left'),
@@ -66,7 +67,7 @@ define(['jquery', 'banner', 'api'], function($, Banner, api){
       let songsArr = res.playlist.tracks;
       songsArr.length = 10;
       let html = songsArr.map((ele, index) => {
-        return `<li data-id="${ele.id}">
+        return `<li class="song-wrap" data-id="${ele.id}">
                 <span class="num">${index + 1}</span>
                 <span class="name">${ele.name}</span>
               </li>`;
@@ -75,14 +76,14 @@ define(['jquery', 'banner', 'api'], function($, Banner, api){
     }
   });
 
-  //获取飙升榜并渲染
+  //获取新歌榜并渲染
   api.apiXgList().then(function(res){
 
     if(res.code == 200){
       let songsArr = res.playlist.tracks;
       songsArr.length = 10;
       let html = songsArr.map((ele, index) => {
-        return `<li data-id="${ele.id}">
+        return `<li class="song-wrap" data-id="${ele.id}">
                 <span class="num">${index + 1}</span>
                 <span class="name">${ele.name}</span>
               </li>`;
@@ -91,14 +92,14 @@ define(['jquery', 'banner', 'api'], function($, Banner, api){
     }
   });
 
-  //获取飙升榜并渲染
+  //获取热歌榜并渲染
   api.apiRgList().then(function(res){
 
     if(res.code == 200){
       let songsArr = res.playlist.tracks;
       songsArr.length = 10;
       let html = songsArr.map((ele, index) => {
-        return `<li data-id="${ele.id}">
+        return `<li class="song-wrap" data-id="${ele.id}">
                 <span class="num">${index + 1}</span>
                 <span class="name">${ele.name}</span>
               </li>`;
@@ -107,5 +108,24 @@ define(['jquery', 'banner', 'api'], function($, Banner, api){
     }
   });
 
-  
+  //点击歌手信息跳转
+  $('.singer-con').on('click', '.singer-wrap', function(){
+    let id = $(this).data('id');
+    location.assign('singer.html?artistId=' + id);
+  });
+
+  //点击歌曲跳转
+  $('#lists').on('click', '.song-wrap', function(){
+    let id = $(this).data('id');
+    location.assign('song.html?songId=' + id);
+  });
+
+  //点击banner图片
+  $('.img_wrap').on('click', 'a', function(){
+    console.log(this);
+    let targetId = $(this).data('targetid');
+    if(targetId){
+      location.assign('song.html?songId=' + targetId);
+    }
+  });
 });

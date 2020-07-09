@@ -6,6 +6,14 @@
   });
 
   define(['jquery'], function($){
+    let search = location.search.substring(1);
+    let reg = /artistId=(\d*)/;
+    let res = search.match(reg);
+    let artistId;
+    if(res){
+      artistId = res[1];
+    }
+
     $.ajax({
         url : 'http://localhost:3000/artist/top/song?id=12429072' ,
         success(data){
