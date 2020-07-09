@@ -3,6 +3,7 @@
   background: white;
   margin: 0 auto;
   border: 1px solid #7d7d7d;
+  padding-bottom: 10px;
 }
 
 .singer .singer-left {
@@ -151,6 +152,7 @@
 .singer .singer-right .singer-hot div {
   float: left;
   margin-left: 20px;
+  width: 50px;
 }
 
 .singer .singer-right .singer-hot img {
