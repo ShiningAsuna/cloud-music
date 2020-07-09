@@ -131,7 +131,7 @@ define(['jquery'], function($){
     }
 
      /**
-     * 获取热歌榜数据
+     * 搜索数据接口
      */
     function apiSearchList(keyword){
       return $.ajax({

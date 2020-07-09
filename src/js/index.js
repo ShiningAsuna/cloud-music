@@ -43,6 +43,11 @@ define(['jquery', 'slider', 'timing'], function($, Slider, timing){
   //点击音量事件
   $('.volume i').on('click', function(){
     $('.volume-wrap').toggle();
+    return false;
+  });
+
+  $(document).on('click', function(){
+    $('.volume-wrap').hide();
   });
 
   //控制开始与暂停

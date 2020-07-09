@@ -16,13 +16,18 @@
     api.apiSongsByArtist(artistId).then(function(res){
               var songs  = res.songs;
               let arr = songs.map(function(ele,i){
-                  return `<tr>
-                              <td width="50px">${i+1}</td>
-                              <td width="20px"><i class="iconfont icon-start"></i></td>
-                              <td>${ele.name}</td>//song's name
-                              <td>歌曲时长</td>
-                              <td>${ele.al.name}</td>//album ' name
-                          </tr>`
+                let artists = '';
+                ele.ar.forEach((data, index) => {
+                  let addStr = index === 0 ? data.name : "/" + data.name;
+                  artists += addStr;
+                });
+                return `<tr>
+                            <td width="50px">${i+1}</td>
+                            <td width="20px"><i class="iconfont icon-start"></i></td>
+                            <td><a href="song.html?songId=${ele.id}">${ele.name}</a></td>
+                            <td>${artists}</td>
+                            <td>${ele.al.name}</td>
+                        </tr>`
               }).join('');
               $(arr).appendTo( '.singer-list');
     });
@@ -44,7 +49,6 @@
       api.apiArtistDetail(artistId).then(function(res){
               let name = res.artist.name;
               let picUrl = res.artist.picUrl;
-              console.log(picUrl)
               $('.singer-name-ch').html(name);
               $('.singer-img').attr('src',picUrl);
     });

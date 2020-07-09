@@ -23,7 +23,7 @@ define(['jquery', 'api', 'lyric', 'timing'], function($, api, Lyric, timing){
       let lyric = res.lrc.lyric;
       let lyricRes = new Lyric(lyric);
       let lyricArr = lyricRes.toStrArr();
-      let lyricHtml = lyricArr.map(function(ele,i){
+      let lyricHtml = lyricArr.map(function(ele){
         return `<span class="lyric">${ele}</span>
                     `;
                   }).join('<br>') 
@@ -91,6 +91,9 @@ define(['jquery', 'api', 'lyric', 'timing'], function($, api, Lyric, timing){
     //设置页面和底部播放器歌手名称
     $info.find('.artist').html(artists);
     $('.detail .artist').html(artists);
+
+    //设置专辑信息
+    $('.detail .album').html(data.al.name);
 
     //设置页面和底部播放器专辑封面
     $('footer .cover img', parent.document).attr('src', data.al.picUrl);

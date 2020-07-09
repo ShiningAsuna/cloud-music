@@ -11,7 +11,7 @@ define(function(){
 
     parse(){
       let arr = this.toArr();
-      let reg = /\[(\d*\:\d*\.\d*)\]\s*(\S+)/;
+      let reg = /\[(\d*\:\d*\.\d*)\]\s*(.+)/;
       let lyricArr = [];
       for(let i = 0; i<arr.length; i++){
         let res = arr[i].match(reg);
