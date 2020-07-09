@@ -1,0 +1,146 @@
+.song {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+.song .song-left {
+  width: 830px;
+  float: left;
+}
+
+.song .song-left .cd {
+  float: left;
+  width: 265px;
+  text-align: center;
+}
+
+.song .song-left .cd img {
+  margin: 0 auto;
+  margin-top: 35px;
+  margin-bottom: 22px;
+  border-radius: 50%;
+  width: 198px;
+  height: 198px;
+}
+
+.song .song-left .cd a {
+  color: #0c73c2;
+}
+
+.song .song-left .container {
+  float: left;
+  width: 370px;
+  margin-top: 35px;
+}
+
+.song .song-left .container img {
+  float: left;
+}
+
+.song .song-left .container .name {
+  float: left;
+  font-size: 24px;
+}
+
+.song .song-left .container .detail {
+  clear: both;
+}
+
+.song .song-left .container .detail p {
+  color: #999999;
+  font-size: 12px;
+  line-height: 36px;
+}
+
+.song .song-left .container .detail a {
+  color: #0c73c2;
+}
+
+.song .song-left .container button {
+  background: #f2f2f2;
+  width: 60px;
+  height: 30px;
+  margin-bottom: 45px;
+}
+
+.song .song-left .container .bro {
+  background: #1f70c0;
+  color: white;
+}
+
+.song .song-left .container .add {
+  width: 30px;
+  height: 30px;
+  background: #1f70c0;
+  color: white;
+}
+
+.song .song-right {
+  float: left;
+  width: 270px;
+}
+
+.song .song-right .title {
+  margin-top: 24px;
+  border-bottom: 1px solid #999;
+  font-weight: bolder;
+  font-size: 12px;
+  padding-bottom: 10px;
+}
+
+.song .song-right .singer-sheet {
+  height: 50px;
+  margin-top: 20px;
+}
+
+.song .song-right .singer-sheet img {
+  float: left;
+  width: 50px;
+  height: 50px;
+}
+
+.song .song-right .singer-sheet .sheet {
+  color: #000000;
+  font-size: 12px;
+}
+
+.song .song-right .similar {
+  height: 26px;
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+.song .song-right .similar .similar-cotainer {
+  float: left;
+  width: 130px;
+  font-size: 12px;
+}
+
+.song .song-right .similar .icon-bro {
+  float: left;
+  padding-left: 34px;
+}
+
+.song .song-right .similar .icon-bro .iconfont {
+  padding-right: 20px;
+}
+
+.song .song-right .singer {
+  color: #666666;
+  font-size: 12px;
+}
+
+.song .song-right .download {
+  padding-top: 20px;
+}
+
+.song .song-right .download .iconfont {
+  font-size: 48px;
+  color: #c2c2c2;
+}
+
+.song .song-right .download .news {
+  font-size: 12px;
+  color: #c2c2c2;
+  margin-top: 30px;
+}
