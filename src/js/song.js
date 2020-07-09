@@ -5,7 +5,7 @@ require.config({
   }
 });
 
-define(['jquery', 'api'], function($, api){
+define(['jquery', 'api','lyric'], function($, api,Lyric){
 
   var str = location.search.substring(1); //?songId=2222222
   var patt1 = /songId=([0-9]*)/;
@@ -14,17 +14,23 @@ define(['jquery', 'api'], function($, api){
   if(res){
     songId = res[1];
   }
-
+  
   //获取lyric数据并渲染
   api.apiLyric(songId).then(function(res){
-      if(res.code == "200"){
-        let lyric = res.lrc.lyric;
-        let lyricStr = `<div>${lyric}</div>`
-        $(lyricStr).appendTo( '.lyrics');
+    if(res.code == "200"){
+      let lyric = res.lrc.lyric;
+      let lyricRes = new Lyric(lyric);
+      let lyricArr = lyricRes.toStrArr();
+      let lyricHtml = lyricArr.map(function(ele,i){
+        return `<span class="lyric">${ele}</span>
+                    `;
+                  }).join('<br>') 
+        $( '.lyrics').append( $(lyricHtml) ) 
+        $( '.lyricsWrap').append( $(lyricHtml) ) 
       }  
-  });
+    });
 
-  //获取歌曲信息并播放
+    //获取歌曲信息并播放
   api.apiSongUrl(songId).then(function(res){
     if(res.code == 200){
       if(res.data){
@@ -32,14 +38,30 @@ define(['jquery', 'api'], function($, api){
       }
     }
   });
-
+  
+  
   //设置歌曲信息信息到页面
   api.apiSongDetail(songId).then(function(res){
     if(res.code == 200){
       setSongInfo(res.songs[0]);
     }
   });
+  
+  //添加与展开歌词
+  $('.unfold').click(function(){
+    $( '.lyricsWrap').hide();
+    $( '.lyrics').show(); 
+    $( '.unfold').hide();   
+    $( '.fold').show();  
+  })
 
+  //添加与展开歌词
+  $('.fold').click(function(){
+    $( '.lyricsWrap').show();
+    $( '.lyrics').hide();  
+    $( '.unfold').show();   
+    $( '.fold').hide();  
+  })
 
   //设置主页音频
   function setAudio(url){
@@ -59,5 +81,7 @@ define(['jquery', 'api'], function($, api){
     $info.find('.artist').html(artists);
     $('footer .cover img', parent.document).attr('src', data.al.picUrl);
   }
+
+
 
 });
