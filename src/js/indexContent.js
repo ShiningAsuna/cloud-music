@@ -106,5 +106,6 @@ define(['jquery', 'banner', 'api'], function($, Banner, api){
       $('.list-rg .list-content').append(html);
     }
   });
+
   
 });

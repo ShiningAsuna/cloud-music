@@ -4,11 +4,12 @@ require.config({
     "slider": "slider",
     "banner": "banner",
     "throttle": "throttle",
-    "api": "api"
+    "api": "api",
+    "lyric": "lyric"
   }
 });
 
-define(['jquery', 'slider'], function($, Slider){
+define(['jquery', 'slider', 'lyric'], function($, Slider){
 
   //初始化进度条
   new Slider({
@@ -31,4 +32,10 @@ define(['jquery', 'slider'], function($, Slider){
       // console.log(per);
     }
   });
+
+  //点击音量事件
+  $('.volume i').on('click', function(){
+    $('.volume-wrap').toggle();
+  });
+
 });

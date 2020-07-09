@@ -100,6 +100,20 @@ define(['jquery'], function($){
       });
     }
 
+     /**
+     * 获取热歌榜数据
+     */
+    function apiSearchList(keyword){
+      return $.ajax({
+        url: 'api/search',
+        type: 'get',
+        dataType: 'json',
+        data: {
+          keywords: keyword
+        }
+      });
+    }
+
     return {
       apiBanner,
       apiArtists,
@@ -108,7 +122,8 @@ define(['jquery'], function($){
       apiLyric,
       apiBsList,
       apiXgList,
-      apiRgList
+      apiRgList,
+      apiSearchList
     }
 
 });
