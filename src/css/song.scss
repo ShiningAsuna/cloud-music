@@ -63,6 +63,22 @@
                 background: #1f70c0;
                 color: white;
             }
+            .lyricsWrap{
+                height: 600px;
+                overflow: hidden;
+                .lyric{
+                    line-height: 23px;
+                    font-size: 14px;
+                }
+            }   
+            .lyrics{
+                display: none;
+                height: 1300px;
+                .lyric{
+                    line-height: 23px;
+                    font-size: 14px;
+                }
+            }
         }
     }
     .song-right{

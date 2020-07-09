@@ -75,6 +75,26 @@
   color: white;
 }
 
+.song .song-left .container .lyricsWrap {
+  height: 600px;
+  overflow: hidden;
+}
+
+.song .song-left .container .lyricsWrap .lyric {
+  line-height: 23px;
+  font-size: 14px;
+}
+
+.song .song-left .container .lyrics {
+  display: none;
+  height: 1300px;
+}
+
+.song .song-left .container .lyrics .lyric {
+  line-height: 23px;
+  font-size: 14px;
+}
+
 .song .song-right {
   float: left;
   width: 270px;
